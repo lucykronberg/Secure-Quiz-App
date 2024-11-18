@@ -3,13 +3,16 @@
 {% block title %}Page 3--Now we know everything!{% endblock %}
 
 {% block content %}
-  <h1>Now I know:</h1>
+  <h1>Final Scores:</h1>
 
 <ul>
- <li> Your first name is: {{ session['firstName'] }} </li>
- <li> Your last name is: {{ session['lastName'] }} </li>
- <li> Your favorite color is: {{ session['favoriteColor'] }} </li>
+ <li> 2+2 is equal to: {{ session['firstName'] }}. Your answer is {{ answer1 }}!</li>
+ <li> 2x3 is equal to: {{ session['lastName'] }}. Your answer is {{ answer2 }}!</li>
+ <li> The Web Design teacher at SBHS is: {{ session['favoriteColor'] }}. Your answer is {{ answer3 }}!</li>
 </ul>
+
+<p><b>You got {{ score }}/3!</b></p>
+<p>It took you {{ length }} seconds!</p>
 
 
 

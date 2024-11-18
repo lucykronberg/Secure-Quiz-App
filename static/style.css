@@ -1,14 +1,14 @@
 body {
 
-    background-color: #ffffcc;
+    background-color: #deb0ad;
     color: black;
 }
 
 div#footer {
     
     font-size: 0.8em;
-    background-color: #ccffff;
-    border: 4px solid grey;
+    background-color: #f5e0df;
+    border: 4px solid black;
     margin-top: 3em;
     padding: 1em;
 }

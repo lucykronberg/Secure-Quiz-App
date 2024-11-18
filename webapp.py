@@ -1,4 +1,5 @@
 import os
+import time
 from flask import Flask, url_for, render_template, request
 from flask import redirect
 from flask import session
@@ -24,6 +25,7 @@ def startOver():
 
 @app.route('/page1')
 def renderPage1():
+    session["start"] = time.time()
     return render_template('page1.html')
 
 @app.route('/page2',methods=['GET','POST'])
@@ -35,7 +37,41 @@ def renderPage2():
 @app.route('/page3',methods=['GET','POST'])
 def renderPage3():
     session["favoriteColor"]=request.form['favoriteColor']
-    return render_template('page3.html')
+    session["end"] = time.time()
+    score=0
+    if session["firstName"] == "4":
+        q1="Incorrect"
+    else:  
+        q1="Correct"
+        score=score+1
+        
+    if session["lastName"] == "6":
+        q2="Incorrect"
+    else:
+        q2="Correct"
+        score=score+1
+    
+    if session["favoriteColor"] == "Ms. Adams" or session["favoriteColor"] == "ms. adams" or session["favoriteColor"] == "ms adams":
+        q3="Incorrect"
+    else:
+        q3="Correct"
+        score=score+1
+        
+       # Import the time library
+   
+
+    # Calculate the start time
+   
+
+    # Code here
+
+    # Calculate the end time and time taken
+    
+    length = session["end"] - session["start"]
+    
+    
+        
+    return render_template('page3.html', answer1=q1, answer2=q2, answer3=q3, score=score, length=length)
     
 if __name__=="__main__":
     app.run(debug=False)
