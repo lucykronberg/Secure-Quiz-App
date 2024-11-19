@@ -30,13 +30,16 @@ def renderPage1():
 
 @app.route('/page2',methods=['GET','POST'])
 def renderPage2():
-    session["firstName"]=request.form['firstName']
-    session["lastName"]=request.form['lastName']
+    if "firstName" not in session:
+        session["firstName"]=request.form['firstName']
+    if "lastName" not in session:
+        session["lastName"]=request.form['lastName']
     return render_template('page2.html')
 
 @app.route('/page3',methods=['GET','POST'])
 def renderPage3():
-    session["favoriteColor"]=request.form['favoriteColor']
+    if "favoriteColor" not in session:
+        session["favoriteColor"]=request.form['favoriteColor']
     session["end"] = time.time()
     score=0
     if session["firstName"] == "4":
